@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Stocky's Detailing Slider</title>
+
+<style>
+  body {
+    background:#000;
+    color:#fff;
+    font-family:Arial, sans-serif;
+    margin:0;
+    padding:0;
+  }
+
+  .container {
+    max-width:900px;
+    margin:40px auto;
+  }
+
+  #slides {
+    display:flex;
+    transition:opacity 0.8s ease-in-out;
+    opacity:1;
+  }
+
+  .fade-out {
+    opacity:0;
+  }
+
+  .slide {
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    margin-bottom:40px;
+    border-radius:8px;
+    box-shadow:0 0 20px rgba(255,255,255,0.1);
+  }
+
+  .slide img {
+    width:100%;
+    display:block;
+  }
+
+  .after {
+    position:absolute;
+    top:0;
+    left:0;
+    width:50%;
+    overflow:hidden;
+  }
+
+  .after img {
+    width:100%;
+  }
+
+  .handle {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:30px;
+    height:30px;
+    background:#fff;
+    border
