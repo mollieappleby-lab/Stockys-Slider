@@ -2,122 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Stocky’s 12‑Set Slider</title>
+<title>Stocky’s Detailing Work</title>
 
 <style>
   body { margin:0; background:#111; color:#fff; font-family:Arial; }
-  .slider-container { width:100%; max-width:900px; margin:auto; padding:20px; }
-  .slide { display:none; }
-  .slide img { width:100%; border-radius:10px; margin-bottom:10px; }
-  .buttons { text-align:center; margin:20px 0; flex-wrap:wrap; }
-  .buttons button {
-    background:#fff; color:#000; padding:10px 20px;
-    border:none; border-radius:5px; margin:5px; cursor:pointer;
+
+  /* MAIN TITLE */
+  h1 {
+    font-family: 'Bank Gothic', Arial, sans-serif;
+    text-align:center;
+    color:white;
+    margin:30px 0;
+    font-size:40px;
+    letter-spacing:2px;
+  }
+
+  .container { max-width:900px; margin:40px auto; position:relative; }
+
+  /* ARROWS */
+  .arrow {
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:50px;
+    color:white;
+    cursor:pointer;
+    user-select:none;
+  }
+  .arrow-left { left:-60px; }
+  .arrow-right { right:-60px; }
+
+  /* COMPARISON SLIDER */
+  .compare-wrapper { position:relative; width:100%; overflow:hidden; border-radius:10px; }
+  .compare-wrapper img { width:100%; display:block; }
+
+  .after-img {
+    position:absolute;
+    top:0;
+    left:0;
+    width:50%;
+    overflow:hidden;
+  }
+  .after-img img { width:200%; transform:translateX(-50%); }
+
+  /* METALLIC DRAG KNOB */
+  .slider {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    cursor:ew-resize;
+    transform:translate(-50%, -50%);
+    background: radial-gradient(circle at 30% 30%, #ffffff, #d9d9d9, #b3b3b3, #8c8c8c);
+    box-shadow:
+      inset 0 0 8px rgba(255,255,255,0.8),
+      inset 0 0 20px rgba(0,0,0,0.4),
+      0 0 15px rgba(0,0,0,0.6);
+    border:2px solid #e6e6e6;
+  }
+
+  /* LABELS */
+  .label {
+    position:absolute;
+    bottom:10px;
+    padding:6px 12px;
+    background:white;
+    color:black;
+    font-weight:bold;
+    border-radius:5px;
     font-size:16px;
   }
-  .buttons button:hover { background:#ccc; }
+  .label-before { left:10px; }
+  .label-after { right:10px; }
+
+  /* SET TITLES */
+  .set-title {
+    text-align:center;
+    font-family:'Bank Gothic', Arial, sans-serif;
+    color:white;
+    font-size:28px;
+    margin-bottom:15px;
+    letter-spacing:1px;
+  }
+
+  .set { display:none; }
 </style>
 </head>
 
 <body>
 
-<div class="slider-container">
+<h1>Stocky's Detailing Work</h1>
+
+<div class="container">
+
+  <div class="arrow arrow-left" onclick="prevSet()">&#10094;</div>
+  <div class="arrow arrow-right" onclick="nextSet()">&#10095;</div>
 
   <!-- SET 1 -->
-  <div class="slide" id="set1">
-    <img src="AEngineBayDetailBMWBefore.jpg">
-    <img src="AEngineBayDetailAfter.jpg">
+  <div class="set" id="set1">
+    <h2 class="set-title">Engine Bay Detail</h2>
+    <div class="compare-wrapper">
+      <img src="AEngineBayDetailBMWBefore.jpg">
+      <div class="after-img"><img src="AEngineBayDetailAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 2 -->
-  <div class="slide" id="set2">
-    <img src="AMollieBackseatBefore.jpg">
-    <img src="AMolliesBackseatAfter.jpg">
+  <div class="set" id="set2">
+    <h2 class="set-title">Standard – Back Seat</h2>
+    <div class="compare-wrapper">
+      <img src="AMollieBackseatBefore.jpg">
+      <div class="after-img"><img src="AMolliesBackseatAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 3 -->
-  <div class="slide" id="set3">
-    <img src="AMolliesPassSeatBefore.jpg">
-    <img src="AMolliesPassSeatAfter.jpg">
+  <div class="set" id="set3">
+    <h2 class="set-title">Standard + Tango + Upholstery – Passenger Seat</h2>
+    <div class="compare-wrapper">
+      <img src="AMolliesPassSeatBefore.jpg">
+      <div class="after-img"><img src="AMolliesPassSeatAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 4 -->
-  <div class="slide" id="set4">
-    <img src="AMumsBackseatsBefore.jpg">
-    <img src="AMumsBackSeatAfter.png">
+  <div class="set" id="set4">
+    <h2 class="set-title">Standard – Back Seats</h2>
+    <div class="compare-wrapper">
+      <img src="AMumsBackseatsBefore.jpg">
+      <div class="after-img"><img src="AMumsBackSeatAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 5 -->
-  <div class="slide" id="set5">
-    <img src="AMumsFrontBefore.png">
-    <img src="AMumsFrontAfter.png">
+  <div class="set" id="set5">
+    <h2 class="set-title">Standard – Front Seats</h2>
+    <div class="compare-wrapper">
+      <img src="AMumsFrontBefore.png">
+      <div class="after-img"><img src="AMumsFrontAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 6 -->
-  <div class="slide" id="set6">
-    <img src="ASamsAlloyBefore.jpg">
-    <img src="ASamsCarAlloyAfter.jpg">
+  <div class="set" id="set6">
+    <h2 class="set-title">Standard + Upholstery Extra – Alloy Wheel</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsAlloyBefore.jpg">
+      <div class="after-img"><img src="ASamsCarAlloyAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 7 -->
-  <div class="slide" id="set7">
-    <img src="ASamsBackseatBefore.jpg">
-    <img src="ASamsRearSeatsAfter.jpg">
+  <div class="set" id="set7">
+    <h2 class="set-title">Standard + Upholstery Extra – Rear Seats</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsBackseatBefore.jpg">
+      <div class="after-img"><img src="ASamsRearSeatsAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 8 -->
-  <div class="slide" id="set8">
-    <img src="ASamsBootBefore.jpg">
-    <img src="ASamsBootAfter.jpg">
+  <div class="set" id="set8">
+    <h2 class="set-title">Standard + Upholstery Extra – Boot Area</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsBootBefore.jpg">
+      <div class="after-img"><img src="ASamsBootAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 9 -->
-  <div class="slide" id="set9">
-    <img src="ASamsCupholdersBefore.jpg">
-    <img src="ASamsCupholderAfter.jpg">
+  <div class="set" id="set9">
+    <h2 class="set-title">Standard + Upholstery Extra – Cupholders</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsCupholdersBefore.jpg">
+      <div class="after-img"><img src="ASamsCupholderAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 10 -->
-  <div class="slide" id="set10">
-    <img src="ASamsCarRearBefore.png">
-    <img src="ASamsCarRearAfter.png">
+  <div class="set" id="set10">
+    <h2 class="set-title">Standard + Upholstery Extra – Rear Exterior</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsCarRearBefore.png">
+      <div class="after-img"><img src="ASamsCarRearAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 11 -->
-  <div class="slide" id="set11">
-    <img src="ASashasRearBefore.png">
-    <img src="ASashasRearAfter.png">
+  <div class="set" id="set11">
+    <h2 class="set-title">Standard – Rear Area</h2>
+    <div class="compare-wrapper">
+      <img src="ASashasRearBefore.png">
+      <div class="after-img"><img src="ASashasRearAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
   <!-- SET 12 -->
-  <div class="slide" id="set12">
-    <img src="ATomsVanBefore.png">
-    <img src="ATomsVanFrontAfter.png">
+  <div class="set" id="set12">
+    <h2 class="set-title">Standard – Van Front</h2>
+    <div class="compare-wrapper">
+      <img src="ATomsVanBefore.png">
+      <div class="after-img"><img src="ATomsVanFrontAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
   </div>
 
 </div>
 
-<div class="buttons">
-  <button onclick="showSlide('set1')">Set 1</button>
-  <button onclick="showSlide('set2')">Set 2</button>
-  <button onclick="showSlide('set3')">Set 3</button>
-  <button onclick="showSlide('set4')">Set 4</button>
-  <button onclick="showSlide('set5')">Set 5</button>
-  <button onclick="showSlide('set6')">Set 6</button>
-  <button onclick="showSlide('set7')">Set 7</button>
-  <button onclick="showSlide('set8')">Set 8</button>
-  <button onclick="showSlide('set9')">Set 9</button>
-  <button onclick="showSlide('set10')">Set 10</button>
-  <button onclick="showSlide('set11')">Set 11</button>
-  <button onclick="showSlide('set12')">Set 12</button>
-</div>
-
 <script>
-function showSlide(id) {
-  document.querySelectorAll('.slide').forEach(s => s.style.display = 'none');
-  document.getElementById(id).style.display = 'block';
+let currentSet = 1;
+
+function showSet(n) {
+  document.querySelectorAll('.set').forEach(s => s.style.display = 'none');
+  document.getElementById('set'+n).style.display = 'block';
 }
-showSlide('set1'); // default
+showSet(1);
+
+function nextSet() {
+  currentSet = currentSet === 12 ? 1 : currentSet + 1;
+  showSet(currentSet);
+}
+
+function prevSet() {
+  currentSet = currentSet === 1 ? 12 : currentSet - 1;
+  showSet(currentSet);
+}
+
+/* DRAG KNOB LOGIC */
+document.querySelectorAll('.compare-wrapper').forEach(wrapper => {
+  const slider = wrapper.querySelector('.slider');
+  const afterImg = wrapper.querySelector('.after-img');
+
+  slider.addEventListener('mousedown', startDrag);
+  slider.addEventListener('touchstart', startDrag);
+
+  function startDrag(e) {
+    e.preventDefault();
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('touchmove', drag);
+    window.addEventListener('mouseup', stopDrag);
+    window.addEventListener('touchend', stopDrag);
+  }
+
+  function drag(e) {
+    let x = e.pageX || e.touches[0].pageX;
+    let rect = wrapper.getBoundingClientRect();
+    let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+    slider.style.left = pos + 'px';
+    afterImg.style.width = pos + 'px';
+  }
+
+  function stopDrag() {
+    window.removeEventListener('mousemove', drag);
+    window.removeEventListener('touchmove', drag);
+    window.removeEventListener('mouseup', stopDrag);
+    window.removeEventListener('touchend', stopDrag);
+  }
+});
 </script>
 
 </body>
