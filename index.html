@@ -12,29 +12,54 @@
     font-family: 'Bank Gothic', Arial, sans-serif;
     text-align:center;
     color:white;
-    margin:30px 0;
-    font-size:40px;
+    margin:20px 0;
+    font-size:32px;
     letter-spacing:2px;
   }
 
-  .container { max-width:900px; margin:40px auto; position:relative; }
+  .container { 
+    max-width:900px; 
+    margin:20px auto; 
+    position:relative; 
+    padding:0 10px;
+  }
 
   /* ARROWS */
   .arrow {
     position:absolute;
     top:50%;
     transform:translateY(-50%);
-    font-size:50px;
+    font-size:40px;
     color:white;
     cursor:pointer;
     user-select:none;
+    z-index:10;
   }
-  .arrow-left { left:-60px; }
-  .arrow-right { right:-60px; }
+  .arrow-left { left:-20px; }
+  .arrow-right { right:-20px; }
 
   /* COMPARISON SLIDER */
-  .compare-wrapper { position:relative; width:100%; overflow:hidden; border-radius:10px; }
-  .compare-wrapper img { width:100%; height:100%; object-fit:cover; display:block; }
+  .compare-wrapper { 
+    position:relative; 
+    width:100%; 
+    overflow:hidden; 
+    border-radius:10px; 
+    height:450px; 
+  }
+
+  /* MOBILE HEIGHT */
+  @media (max-width: 600px) {
+    .compare-wrapper {
+      height:300px;
+    }
+  }
+
+  .compare-wrapper img { 
+    width:100%; 
+    height:100%; 
+    object-fit:cover; 
+    display:block; 
+  }
 
   .after-img {
     position:absolute;
@@ -67,6 +92,15 @@
       inset 0 0 20px rgba(0,0,0,0.4),
       0 0 15px rgba(0,0,0,0.6);
     border:2px solid #e6e6e6;
+    z-index:5;
+  }
+
+  /* SMALLER KNOB ON MOBILE */
+  @media (max-width: 600px) {
+    .slider {
+      width:35px;
+      height:35px;
+    }
   }
 
   /* LABELS */
@@ -78,7 +112,8 @@
     color:black;
     font-weight:bold;
     border-radius:5px;
-    font-size:16px;
+    font-size:14px;
+    z-index:4;
   }
   .label-before { left:10px; }
   .label-after { right:10px; }
@@ -88,8 +123,8 @@
     text-align:center;
     font-family:'Bank Gothic', Arial, sans-serif;
     color:white;
-    font-size:28px;
-    margin-bottom:15px;
+    font-size:22px;
+    margin-bottom:10px;
     letter-spacing:1px;
   }
 
