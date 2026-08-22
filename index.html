@@ -7,80 +7,36 @@
 <style>
   body { margin:0; background:#111; color:#fff; font-family:Arial; }
 
-  /* MAIN TITLE */
   h1 {
     font-family: 'Bank Gothic', Arial, sans-serif;
     text-align:center;
     color:white;
-    margin:20px 0;
-    font-size:32px;
+    margin:15px 0;
+    font-size:26px;
     letter-spacing:2px;
   }
 
   .container { 
-    max-width:900px; 
-    margin:20px auto; 
-    position:relative; 
+    max-width:600px; 
+    margin:0 auto; 
     padding:0 10px;
   }
 
-  /* COMPARISON SLIDER */
+  /* SLIDER SIZE */
   .compare-wrapper { 
     position:relative; 
     width:100%; 
     overflow:hidden; 
     border-radius:10px; 
-    height:250px; 
+    height:220px; /* desktop */
   }
 
-  /* MOBILE HEIGHT */
+  /* MOBILE SIZE — NO SCROLLING */
   @media (max-width: 600px) {
     .compare-wrapper {
-      height:180px;
+      height:140px;
     }
   }
-
-  /* MOBILE FIXES — MAKES SLIDER FIT GOOGLE SITES */
-@media (max-width: 600px) {
-
-  /* Smaller slider height */
-  .compare-wrapper {
-    height:300px;
-  }
-
-  /* Smaller drag knob */
-  .slider {
-    width:24px;
-    height:24px;
-  }
-
-  /* Smaller arrows at bottom */
-  .arrow-bottom {
-    font-size:26px;
-    margin:0 10px;
-  }
-
-  /* Smaller titles */
-  .set-title {
-    font-size:18px;
-    margin-bottom:8px;
-  }
-
-  /* Smaller labels */
-  .label {
-    font-size:12px;
-    padding:4px 8px;
-    bottom:6px;
-  }
-
-  /* Container fits mobile width */
-  .container {
-    width:100%;
-    max-width:100%;
-    padding:0 5px;
-  }
-}
-
 
   .compare-wrapper img { 
     width:100%; 
@@ -104,13 +60,13 @@
     object-fit:cover;
   }
 
-  /* METALLIC DRAG KNOB */
+  /* DRAG KNOB */
   .slider {
     position:absolute;
     top:50%;
     left:50%;
-    width:35px;
-    height:35px;
+    width:32px;
+    height:32px;
     border-radius:50%;
     cursor:ew-resize;
     transform:translate(-50%, -50%);
@@ -123,60 +79,75 @@
     z-index:5;
   }
 
-  /* SMALLER KNOB ON MOBILE */
   @media (max-width: 600px) {
     .slider {
-      width:28px;
-      height:28px;
+      width:22px;
+      height:22px;
     }
   }
 
   /* LABELS */
   .label {
     position:absolute;
-    bottom:10px;
-    padding:6px 12px;
+    bottom:8px;
+    padding:4px 10px;
     background:white;
     color:black;
     font-weight:bold;
     border-radius:5px;
-    font-size:14px;
+    font-size:13px;
     z-index:4;
   }
   .label-before { left:10px; }
   .label-after { right:10px; }
 
-  /* SET TITLES */
+  @media (max-width: 600px) {
+    .label {
+      font-size:11px;
+      padding:3px 7px;
+      bottom:5px;
+    }
+  }
+
+  /* TITLES */
   .set-title {
     text-align:center;
     font-family:'Bank Gothic', Arial, sans-serif;
     color:white;
-    font-size:22px;
-    margin-bottom:10px;
+    font-size:20px;
+    margin:10px 0;
     letter-spacing:1px;
+  }
+
+  @media (max-width: 600px) {
+    .set-title {
+      font-size:16px;
+      margin:6px 0;
+    }
   }
 
   .set { display:none; }
 
   /* BOTTOM ARROWS */
   .bottom-arrows {
-    width: 100%;
-    text-align: center;
-    margin-top: 15px;
+    width:100%;
+    text-align:center;
+    margin-top:12px;
+    margin-bottom:12px;
   }
 
   .arrow-bottom {
-    font-size:40px;
+    font-size:36px;
     color:white;
     cursor:pointer;
     user-select:none;
-    margin:0 20px;
+    margin:0 18px;
   }
 
   @media (max-width: 600px) {
     .arrow-bottom {
-      font-size:30px;
-      margin:0 15px;
+      font-size:28px;
+      margin:0 12px;
     }
   }
 </style>
@@ -188,7 +159,7 @@
 
 <div class="container">
 
-  <!-- SET 1 -->
+  <!-- SETS -->
   <div class="set" id="set1">
     <h2 class="set-title">Engine Bay Detail</h2>
     <div class="compare-wrapper">
@@ -200,7 +171,6 @@
     </div>
   </div>
 
-  <!-- SET 2 -->
   <div class="set" id="set2">
     <h2 class="set-title">Standard – Back Seat</h2>
     <div class="compare-wrapper">
@@ -212,7 +182,6 @@
     </div>
   </div>
 
-  <!-- SET 3 -->
   <div class="set" id="set3">
     <h2 class="set-title">Standard + Tango + Upholstery – Passenger Seat</h2>
     <div class="compare-wrapper">
@@ -224,7 +193,6 @@
     </div>
   </div>
 
-  <!-- SET 4 -->
   <div class="set" id="set4">
     <h2 class="set-title">Standard – Back Seats</h2>
     <div class="compare-wrapper">
@@ -236,7 +204,6 @@
     </div>
   </div>
 
-  <!-- SET 5 -->
   <div class="set" id="set5">
     <h2 class="set-title">Standard – Front Seats</h2>
     <div class="compare-wrapper">
@@ -248,7 +215,6 @@
     </div>
   </div>
 
-  <!-- SET 6 -->
   <div class="set" id="set6">
     <h2 class="set-title">Standard + Upholstery Extra – Alloy Wheel</h2>
     <div class="compare-wrapper">
@@ -260,7 +226,6 @@
     </div>
   </div>
 
-  <!-- SET 7 -->
   <div class="set" id="set7">
     <h2 class="set-title">Standard + Upholstery Extra – Rear Seats</h2>
     <div class="compare-wrapper">
@@ -272,7 +237,6 @@
     </div>
   </div>
 
-  <!-- SET 8 -->
   <div class="set" id="set8">
     <h2 class="set-title">Standard + Upholstery Extra – Boot Area</h2>
     <div class="compare-wrapper">
@@ -284,7 +248,6 @@
     </div>
   </div>
 
-  <!-- SET 9 -->
   <div class="set" id="set9">
     <h2 class="set-title">Standard + Upholstery Extra – Cupholders</h2>
     <div class="compare-wrapper">
@@ -296,7 +259,6 @@
     </div>
   </div>
 
-  <!-- SET 10 -->
   <div class="set" id="set10">
     <h2 class="set-title">Standard + Upholstery Extra – Rear Exterior</h2>
     <div class="compare-wrapper">
@@ -308,7 +270,6 @@
     </div>
   </div>
 
-  <!-- SET 11 -->
   <div class="set" id="set11">
     <h2 class="set-title">Standard – Rear Area</h2>
     <div class="compare-wrapper">
@@ -320,7 +281,6 @@
     </div>
   </div>
 
-  <!-- SET 12 -->
   <div class="set" id="set12">
     <h2 class="set-title">Standard – Van Front</h2>
     <div class="compare-wrapper">
@@ -336,8 +296,8 @@
 
 <!-- BOTTOM ARROWS -->
 <div class="bottom-arrows">
-  <span class="arrow-bottom arrow-left" onclick="prevSet()">&#10094;</span>
-  <span class="arrow-bottom arrow-right" onclick="nextSet()">&#10095;</span>
+  <span class="arrow-bottom" onclick="prevSet()">&#10094;</span>
+  <span class="arrow-bottom" onclick="nextSet()">&#10095;</span>
 </div>
 
 <script>
