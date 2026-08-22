@@ -7,7 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
-  body { margin:0; background:#111; color:#fff; font-family:Arial; }
+  body { 
+    margin:0; 
+    background:#111; 
+    color:#fff; 
+    font-family:Arial; 
+    overflow-x:hidden;
+    touch-action:manipulation;
+  }
 
   h1 {
     font-family: 'Bank Gothic', Arial, sans-serif;
@@ -24,19 +31,25 @@
     padding:0 10px;
   }
 
-  /* BIGGER IMAGES + NO ZOOM */
+  /* MOBILE-FIT SLIDER */
   .compare-wrapper { 
     position:relative; 
     width:100%; 
     overflow:hidden; 
-    border-radius:10px; 
-    height:600px; 
+    border-radius:10px;
+
+    height:75vh;          /* fits mobile screen */
+    max-height:600px;     /* desktop limit */
+
     touch-action:none;
     user-select:none;
   }
 
   @media (max-width: 600px) {
-    .compare-wrapper { height:400px; }
+    .compare-wrapper {
+      height:70vh;        /* perfect mobile fit */
+      max-height:450px;
+    }
   }
 
   .compare-wrapper img { 
@@ -62,7 +75,7 @@
     object-fit:cover;
   }
 
-  /* BIGGER KNOB */
+  /* BIGGER KNOB + NO ZOOM */
   .slider {
     position:absolute;
     top:50%;
@@ -159,165 +172,184 @@
 
   <!-- SET 3 -->
   <div class="set" id="set3">
-    <h2 class="set-title"><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Stocky’s Detailing Work</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-<style>
-  body { margin:0; background:#111; color:#fff; font-family:Arial; }
-
-  h1 {
-    font-family: 'Bank Gothic', Arial, sans-serif;
-    text-align:center;
-    color:white;
-    margin:20px 0;
-    font-size:32px;
-    letter-spacing:2px;
-  }
-
-  .container { 
-    max-width:900px; 
-    margin:20px auto; 
-    padding:0 10px;
-  }
-
-  /* BIGGER IMAGES + NO ZOOM */
-  .compare-wrapper { 
-    position:relative; 
-    width:100%; 
-    overflow:hidden; 
-    border-radius:10px; 
-    height:600px; 
-    touch-action:none;
-    user-select:none;
-  }
-
-  @media (max-width: 600px) {
-    .compare-wrapper { height:400px; }
-  }
-
-  .compare-wrapper img { 
-    width:100%; 
-    height:100%; 
-    object-fit:cover; 
-    display:block; 
-    pointer-events:none;
-  }
-
-  .after-img {
-    position:absolute;
-    top:0;
-    left:0;
-    width:50%;
-    height:100%;
-    overflow:hidden;
-  }
-
-  .after-img img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-  }
-
-  /* BIGGER KNOB */
-  .slider {
-    position:absolute;
-    top:50%;
-    left:50%;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    cursor:ew-resize;
-    transform:translate(-50%, -50%);
-    background: radial-gradient(circle at 30% 30%, #ffffff, #d9d9d9, #b3b3b3, #8c8c8c);
-    box-shadow:
-      inset 0 0 8px rgba(255,255,255,0.8),
-      inset 0 0 20px rgba(0,0,0,0.4),
-      0 0 15px rgba(0,0,0,0.6);
-    border:2px solid #e6e6e6;
-    z-index:5;
-    touch-action:none;
-    user-select:none;
-  }
-
-  @media (max-width: 600px) {
-    .slider { width:45px; height:45px; }
-  }
-
-  .label {
-    position:absolute;
-    bottom:10px;
-    padding:6px 12px;
-    background:white;
-    color:black;
-    font-weight:bold;
-    border-radius:5px;
-    font-size:14px;
-    z-index:4;
-  }
-  .label-before { left:10px; }
-  .label-after { right:10px; }
-
-  .set-title {
-    text-align:center;
-    font-family:'Bank Gothic', Arial, sans-serif;
-    color:white;
-    font-size:22px;
-    margin-bottom:10px;
-    letter-spacing:1px;
-  }
-
-  .set { display:none; }
-
-  .arrow-bar {
-    text-align:center;
-    margin-top:15px;
-  }
-
-  .arrow-btn {
-    font-size:32px;
-    color:white;
-    cursor:pointer;
-    padding:10px 20px;
-    user-select:none;
-  }
-</style>
-</head>
-
-<body>
-
-<h1>Stocky's Detailing Work</h1>
-
-<div class="container">
-
-  <!-- SET 1 -->
-  <div class="set" id="set1">
-    <h2 class="set-title">Engine Bay Detail</h2>
+    <h2 class="set-title">Standard + Tango + Upholstery – Passenger Seat</h2>
     <div class="compare-wrapper">
-      <img src="AEngineBayDetailBMWBefore.jpg">
-      <div class="after-img"><img src="AEngineBayDetailAfter.jpg"></div>
+      <img src="AMolliesPassSeatBefore.jpg">
+      <div class="after-img"><img src="AMolliesPassSeatAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
     </div>
   </div>
 
-  <!-- SET 2 -->
-  <div class="set" id="set2">
-    <h2 class="set-title">Standard – Back Seat</h2>
+  <!-- SET 4 -->
+  <div class="set" id="set4">
+    <h2 class="set-title">Standard – Back Seats</h2>
     <div class="compare-wrapper">
-      <img src="AMollieBackseatBefore.jpg">
-      <div class="after-img"><img src="AMolliesBackseatAfter.jpg"></div>
+      <img src="AMumsBackseatsBefore.jpg">
+      <div class="after-img"><img src="AMumsBackSeatAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
     </div>
   </div>
 
-  <!-- SET 3 -->
-  <div class="set" id="set3">
-    <h2 class="set-title">
+  <!-- SET 5 -->
+  <div class="set" id="set5">
+    <h2 class="set-title">Standard – Front Seats</h2>
+    <div class="compare-wrapper">
+      <img src="AMumsFrontBefore.png">
+      <div class="after-img"><img src="AMumsFrontAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 6 -->
+  <div class="set" id="set6">
+    <h2 class="set-title">Standard + Upholstery Extra – Alloy Wheel</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsAlloyBefore.jpg">
+      <div class="after-img"><img src="ASamsCarAlloyAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 7 -->
+  <div class="set" id="set7">
+    <h2 class="set-title">Standard + Upholstery Extra – Rear Seats</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsBackseatBefore.jpg">
+      <div class="after-img"><img src="ASamsRearSeatsAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 8 -->
+  <div class="set" id="set8">
+    <h2 class="set-title">Standard + Upholstery Extra – Boot Area</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsBootBefore.jpg">
+      <div class="after-img"><img src="ASamsBootAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 9 -->
+  <div class="set" id="set9">
+    <h2 class="set-title">Standard + Upholstery Extra – Cupholders</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsCupholdersBefore.jpg">
+      <div class="after-img"><img src="ASamsCupholderAfter.jpg"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 10 -->
+  <div class="set" id="set10">
+    <h2 class="set-title">Standard + Upholstery Extra – Rear Exterior</h2>
+    <div class="compare-wrapper">
+      <img src="ASamsCarRearBefore.png">
+      <div class="after-img"><img src="ASamsCarRearAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 11 -->
+  <div class="set" id="set11">
+    <h2 class="set-title">Standard – Rear Area</h2>
+    <div class="compare-wrapper">
+      <img src="ASashasRearBefore.png">
+      <div class="after-img"><img src="ASashasRearAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <!-- SET 12 -->
+  <div class="set" id="set12">
+    <h2 class="set-title">Standard – Van Front</h2>
+    <div class="compare-wrapper">
+      <img src="ATomsVanBefore.png">
+      <div class="after-img"><img src="ATomsVanFrontAfter.png"></div>
+      <div class="slider"></div>
+      <div class="label label-before">Before</div>
+      <div class="label label-after">After</div>
+    </div>
+  </div>
+
+  <div class="arrow-bar">
+    <span class="arrow-btn" onclick="prevSet()">&#10094;</span>
+    <span class="arrow-btn" onclick="nextSet()">&#10095;</span>
+  </div>
+
+</div>
+
+<script>
+let currentSet = 1;
+
+function showSet(n) {
+  document.querySelectorAll('.set').forEach(s => s.style.display = 'none');
+  document.getElementById('set'+n).style.display = 'block';
+}
+showSet(1);
+
+function nextSet() {
+  currentSet = currentSet === 12 ? 1 : currentSet + 1;
+  showSet(currentSet);
+}
+
+function prevSet() {
+  currentSet = currentSet === 1 ? 12 : currentSet - 1;
+  showSet(currentSet);
+}
+
+/* NO ZOOM + SMOOTH DRAG */
+document.querySelectorAll('.compare-wrapper').forEach(wrapper => {
+  const slider = wrapper.querySelector('.slider');
+  const afterImg = wrapper.querySelector('.after-img');
+
+  function startDrag(e) {
+    e.preventDefault();
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('touchmove', drag, { passive:false });
+    window.addEventListener('mouseup', stopDrag);
+    window.addEventListener('touchend', stopDrag);
+  }
+
+  function drag(e) {
+    e.preventDefault();
+    let x = (e.touches ? e.touches[0].pageX : e.pageX);
+    let rect = wrapper.getBoundingClientRect();
+    let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+    slider.style.left = pos + 'px';
+    afterImg.style.width = pos + 'px';
+  }
+
+  function stopDrag() {
+    window.removeEventListener('mousemove', drag);
+    window.removeEventListener('touchmove', drag);
+    window.removeEventListener('mouseup', stopDrag);
+    window.removeEventListener('touchend', stopDrag);
+  }
+
+  slider.addEventListener('mousedown', startDrag);
+  slider.addEventListener('touchstart', startDrag, { passive:false });
+});
+</script>
+
+</body>
+</html>
+
