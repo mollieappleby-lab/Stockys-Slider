@@ -32,7 +32,7 @@
   .compare-wrapper {
     position:relative;
     width:100%;
-    height:75vh;          /* fits mobile screen */
+    height:75vh;
     max-height:600px;
     overflow:hidden;
     border-radius:10px;
@@ -102,16 +102,36 @@
 
   .set { display:none; }
 
-  .arrow-bar {
-    text-align:center;
-    margin-top:15px;
+  /* SIDE ARROWS */
+  .side-arrows {
+    position:absolute;
+    top:50%;
+    width:100%;
+    transform:translateY(-50%);
+    z-index:30;
+    pointer-events:none;
   }
 
-  .arrow-btn {
-    font-size:32px;
+  .arrow-left,
+  .arrow-right {
+    position:absolute;
+    font-size:45px;
     color:white;
     cursor:pointer;
-    padding:10px 20px;
+    user-select:none;
+    pointer-events:auto;
+    padding:10px;
+  }
+
+  .arrow-left { left:10px; }
+  .arrow-right { right:10px; }
+
+  @media (max-width:600px) {
+    .arrow-left,
+    .arrow-right {
+      font-size:35px;
+      padding:5px;
+    }
   }
 </style>
 </head>
@@ -130,6 +150,10 @@
       <div class="after-img"><img src="AEngineBayDetailAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -141,6 +165,10 @@
       <div class="after-img"><img src="AMolliesBackseatAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -152,6 +180,10 @@
       <div class="after-img"><img src="AMolliesPassSeatAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -163,6 +195,10 @@
       <div class="after-img"><img src="AMumsBackSeatAfter.png"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -174,6 +210,10 @@
       <div class="after-img"><img src="AMumsFrontAfter.png"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -185,6 +225,10 @@
       <div class="after-img"><img src="ASamsCarAlloyAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -196,6 +240,10 @@
       <div class="after-img"><img src="ASamsRearSeatsAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -207,6 +255,10 @@
       <div class="after-img"><img src="ASamsBootAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -218,6 +270,10 @@
       <div class="after-img"><img src="ASamsCupholderAfter.jpg"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -229,6 +285,10 @@
       <div class="after-img"><img src="ASamsCarRearAfter.png"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -240,6 +300,10 @@
       <div class="after-img"><img src="ASashasRearAfter.png"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
   </div>
 
@@ -251,12 +315,11 @@
       <div class="after-img"><img src="ATomsVanFrontAfter.png"></div>
       <div class="slider"></div>
       <div class="handle"></div>
+      <div class="side-arrows">
+        <span class="arrow-left" onclick="prevSet()">&#10094;</span>
+        <span class="arrow-right" onclick="nextSet()">&#10095;</span>
+      </div>
     </div>
-  </div>
-
-  <div class="arrow-bar">
-    <span class="arrow-btn" onclick="prevSet()">&#10094;</span>
-    <span class="arrow-btn" onclick="nextSet()">&#10095;</span>
   </div>
 
 </div>
