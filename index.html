@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <title>Stocky’s Detailing Work</title>
 
-<!-- STOP GOOGLE SITES FROM ZOOMING -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
 <style>
   body { margin:0; background:#111; color:#fff; font-family:Arial; }
 
+  /* MAIN TITLE */
   h1 {
     font-family: 'Bank Gothic', Arial, sans-serif;
     text-align:center;
@@ -22,6 +20,7 @@
   .container { 
     max-width:900px; 
     margin:20px auto; 
+    position:relative; 
     padding:0 10px;
   }
 
@@ -31,12 +30,14 @@
     width:100%; 
     overflow:hidden; 
     border-radius:10px; 
-    height:450px; 
-    touch-action:none; /* prevents zooming */
+    height:250px; 
   }
 
+  /* MOBILE HEIGHT */
   @media (max-width: 600px) {
-    .compare-wrapper { height:300px; }
+    .compare-wrapper {
+      height:180px;
+    }
   }
 
   .compare-wrapper img { 
@@ -44,7 +45,6 @@
     height:100%; 
     object-fit:cover; 
     display:block; 
-    pointer-events:none;
   }
 
   .after-img {
@@ -67,8 +67,8 @@
     position:absolute;
     top:50%;
     left:50%;
-    width:50px;
-    height:50px;
+    width:35px;
+    height:35px;
     border-radius:50%;
     cursor:ew-resize;
     transform:translate(-50%, -50%);
@@ -79,11 +79,14 @@
       0 0 15px rgba(0,0,0,0.6);
     border:2px solid #e6e6e6;
     z-index:5;
-    touch-action:none; /* stops zoom */
   }
 
+  /* SMALLER KNOB ON MOBILE */
   @media (max-width: 600px) {
-    .slider { width:35px; height:35px; }
+    .slider {
+      width:28px;
+      height:28px;
+    }
   }
 
   /* LABELS */
@@ -114,17 +117,25 @@
   .set { display:none; }
 
   /* BOTTOM ARROWS */
-  .arrow-bar {
-    text-align:center;
-    margin-top:15px;
+  .bottom-arrows {
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
   }
 
-  .arrow-btn {
-    font-size:32px;
+  .arrow-bottom {
+    font-size:40px;
     color:white;
     cursor:pointer;
-    padding:10px 20px;
     user-select:none;
+    margin:0 20px;
+  }
+
+  @media (max-width: 600px) {
+    .arrow-bottom {
+      font-size:30px;
+      margin:0 15px;
+    }
   }
 </style>
 </head>
@@ -139,8 +150,8 @@
   <div class="set" id="set1">
     <h2 class="set-title">Engine Bay Detail</h2>
     <div class="compare-wrapper">
-      <img src="images/AEngineBayDetailBMWBefore.jpg">
-      <div class="after-img"><img src="images/AEngineBayDetailAfter.jpg"></div>
+      <img src="AEngineBayDetailBMWBefore.jpg">
+      <div class="after-img"><img src="AEngineBayDetailAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -151,8 +162,8 @@
   <div class="set" id="set2">
     <h2 class="set-title">Standard – Back Seat</h2>
     <div class="compare-wrapper">
-      <img src="images/AMollieBackseatBefore.jpg">
-      <div class="after-img"><img src="images/AMolliesBackseatAfter.jpg"></div>
+      <img src="AMollieBackseatBefore.jpg">
+      <div class="after-img"><img src="AMolliesBackseatAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -163,8 +174,8 @@
   <div class="set" id="set3">
     <h2 class="set-title">Standard + Tango + Upholstery – Passenger Seat</h2>
     <div class="compare-wrapper">
-      <img src="images/AMolliesPassSeatBefore.jpg">
-      <div class="after-img"><img src="images/AMolliesPassSeatAfter.jpg"></div>
+      <img src="AMolliesPassSeatBefore.jpg">
+      <div class="after-img"><img src="AMolliesPassSeatAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -175,8 +186,8 @@
   <div class="set" id="set4">
     <h2 class="set-title">Standard – Back Seats</h2>
     <div class="compare-wrapper">
-      <img src="images/AMumsBackseatsBefore.jpg">
-      <div class="after-img"><img src="images/AMumsBackSeatAfter.png"></div>
+      <img src="AMumsBackseatsBefore.jpg">
+      <div class="after-img"><img src="AMumsBackSeatAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -187,8 +198,8 @@
   <div class="set" id="set5">
     <h2 class="set-title">Standard – Front Seats</h2>
     <div class="compare-wrapper">
-      <img src="images/AMumsFrontBefore.png">
-      <div class="after-img"><img src="images/AMumsFrontAfter.png"></div>
+      <img src="AMumsFrontBefore.png">
+      <div class="after-img"><img src="AMumsFrontAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -199,8 +210,8 @@
   <div class="set" id="set6">
     <h2 class="set-title">Standard + Upholstery Extra – Alloy Wheel</h2>
     <div class="compare-wrapper">
-      <img src="images/ASamsAlloyBefore.jpg">
-      <div class="after-img"><img src="images/ASamsCarAlloyAfter.jpg"></div>
+      <img src="ASamsAlloyBefore.jpg">
+      <div class="after-img"><img src="ASamsCarAlloyAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -211,8 +222,8 @@
   <div class="set" id="set7">
     <h2 class="set-title">Standard + Upholstery Extra – Rear Seats</h2>
     <div class="compare-wrapper">
-      <img src="images/ASamsBackseatBefore.jpg">
-      <div class="after-img"><img src="images/ASamsRearSeatsAfter.jpg"></div>
+      <img src="ASamsBackseatBefore.jpg">
+      <div class="after-img"><img src="ASamsRearSeatsAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -223,8 +234,8 @@
   <div class="set" id="set8">
     <h2 class="set-title">Standard + Upholstery Extra – Boot Area</h2>
     <div class="compare-wrapper">
-      <img src="images/ASamsBootBefore.jpg">
-      <div class="after-img"><img src="images/ASamsBootAfter.jpg"></div>
+      <img src="ASamsBootBefore.jpg">
+      <div class="after-img"><img src="ASamsBootAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -235,8 +246,8 @@
   <div class="set" id="set9">
     <h2 class="set-title">Standard + Upholstery Extra – Cupholders</h2>
     <div class="compare-wrapper">
-      <img src="images/ASamsCupholdersBefore.jpg">
-      <div class="after-img"><img src="images/ASamsCupholderAfter.jpg"></div>
+      <img src="ASamsCupholdersBefore.jpg">
+      <div class="after-img"><img src="ASamsCupholderAfter.jpg"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -247,8 +258,8 @@
   <div class="set" id="set10">
     <h2 class="set-title">Standard + Upholstery Extra – Rear Exterior</h2>
     <div class="compare-wrapper">
-      <img src="images/ASamsCarRearBefore.png">
-      <div class="after-img"><img src="images/ASamsCarRearAfter.png"></div>
+      <img src="ASamsCarRearBefore.png">
+      <div class="after-img"><img src="ASamsCarRearAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -259,8 +270,8 @@
   <div class="set" id="set11">
     <h2 class="set-title">Standard – Rear Area</h2>
     <div class="compare-wrapper">
-      <img src="images/ASashasRearBefore.png">
-      <div class="after-img"><img src="images/ASashasRearAfter.png"></div>
+      <img src="ASashasRearBefore.png">
+      <div class="after-img"><img src="ASashasRearAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
@@ -271,20 +282,20 @@
   <div class="set" id="set12">
     <h2 class="set-title">Standard – Van Front</h2>
     <div class="compare-wrapper">
-      <img src="images/ATomsVanBefore.png">
-      <div class="after-img"><img src="images/ATomsVanFrontAfter.png"></div>
+      <img src="ATomsVanBefore.png">
+      <div class="after-img"><img src="ATomsVanFrontAfter.png"></div>
       <div class="slider"></div>
       <div class="label label-before">Before</div>
       <div class="label label-after">After</div>
     </div>
   </div>
 
-  <!-- BOTTOM ARROWS -->
-  <div class="arrow-bar">
-    <span class="arrow-btn" onclick="prevSet()">&#10094;</span>
-    <span class="arrow-btn" onclick="nextSet()">&#10095;</span>
-  </div>
+</div>
 
+<!-- BOTTOM ARROWS -->
+<div class="bottom-arrows">
+  <span class="arrow-bottom arrow-left" onclick="prevSet()">&#10094;</span>
+  <span class="arrow-bottom arrow-right" onclick="nextSet()">&#10095;</span>
 </div>
 
 <script>
@@ -306,7 +317,38 @@ function prevSet() {
   showSet(currentSet);
 }
 
-/* DRAG KNOB LOGIC — NO ZOOMING */
+/* DRAG KNOB LOGIC */
 document.querySelectorAll('.compare-wrapper').forEach(wrapper => {
   const slider = wrapper.querySelector('.slider');
-  const after
+  const afterImg = wrapper.querySelector('.after-img');
+
+  slider.addEventListener('mousedown', startDrag);
+  slider.addEventListener('touchstart', startDrag);
+
+  function startDrag(e) {
+    e.preventDefault();
+    window.addEventListener('mousemove', drag);
+    window.addEventListener('touchmove', drag);
+    window.addEventListener('mouseup', stopDrag);
+    window.addEventListener('touchend', stopDrag);
+  }
+
+  function drag(e) {
+    let x = e.pageX || e.touches[0].pageX;
+    let rect = wrapper.getBoundingClientRect();
+    let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+    slider.style.left = pos + 'px';
+    afterImg.style.width = pos + 'px';
+  }
+
+  function stopDrag() {
+    window.removeEventListener('mousemove', drag);
+    window.removeEventListener('touchmove', drag);
+    window.removeEventListener('mouseup', stopDrag);
+    window.removeEventListener('touchend', stopDrag);
+  }
+});
+</script>
+
+</body>
+</html>
