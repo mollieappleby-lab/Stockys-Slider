@@ -4,59 +4,52 @@
 <meta charset="UTF-8">
 <title>Stocky’s Detailing Work</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-  body { 
-    margin:0; 
-    background:#111; 
-    color:#fff; 
-    font-family:Arial; 
-    overflow-x:hidden;
-    touch-action:manipulation;
+  body {
+    margin:0;
+    background:#111;
+    color:#fff;
+    font-family:Arial;
+    overflow:hidden;
   }
 
   h1 {
-    font-family: 'Bank Gothic', Arial, sans-serif;
     text-align:center;
-    color:white;
     margin:20px 0;
-    font-size:32px;
+    font-size:28px;
     letter-spacing:2px;
   }
 
-  .container { 
-    max-width:900px; 
-    margin:20px auto; 
+  .container {
+    max-width:900px;
+    margin:0 auto;
     padding:0 10px;
   }
 
-  /* MOBILE-FIT SLIDER */
-  .compare-wrapper { 
-    position:relative; 
-    width:100%; 
-    overflow:hidden; 
-    border-radius:10px;
-
+  /* TRUE OVERLAY SLIDER — FITS MOBILE SCREEN */
+  .compare-wrapper {
+    position:relative;
+    width:100%;
     height:75vh;          /* fits mobile screen */
-    max-height:600px;     /* desktop limit */
-
-    touch-action:none;
-    user-select:none;
+    max-height:600px;
+    overflow:hidden;
+    border-radius:10px;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width:600px) {
     .compare-wrapper {
-      height:70vh;        /* perfect mobile fit */
+      height:70vh;
       max-height:450px;
     }
   }
 
-  .compare-wrapper img { 
-    width:100%; 
-    height:100%; 
-    object-fit:cover; 
-    display:block; 
+  .compare-wrapper img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
     pointer-events:none;
   }
 
@@ -75,52 +68,36 @@
     object-fit:cover;
   }
 
-  /* BIGGER KNOB + NO ZOOM */
+  /* NON-ZOOM KNOB */
   .slider {
+    position:absolute;
+    top:0;
+    left:50%;
+    width:4px;
+    height:100%;
+    background:white;
+    cursor:pointer;
+    z-index:10;
+    touch-action:none;
+  }
+
+  .handle {
     position:absolute;
     top:50%;
     left:50%;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    cursor:ew-resize;
-    transform:translate(-50%, -50%);
-    background: radial-gradient(circle at 30% 30%, #ffffff, #d9d9d9, #b3b3b3, #8c8c8c);
-    box-shadow:
-      inset 0 0 8px rgba(255,255,255,0.8),
-      inset 0 0 20px rgba(0,0,0,0.4),
-      0 0 15px rgba(0,0,0,0.6);
-    border:2px solid #e6e6e6;
-    z-index:5;
-    touch-action:none;
-    user-select:none;
-  }
-
-  @media (max-width: 600px) {
-    .slider { width:45px; height:45px; }
-  }
-
-  .label {
-    position:absolute;
-    bottom:10px;
-    padding:6px 12px;
+    width:40px;
+    height:40px;
     background:white;
-    color:black;
-    font-weight:bold;
-    border-radius:5px;
-    font-size:14px;
-    z-index:4;
+    border-radius:50%;
+    transform:translate(-50%, -50%);
+    z-index:11;
+    touch-action:none;
   }
-  .label-before { left:10px; }
-  .label-after { right:10px; }
 
   .set-title {
     text-align:center;
-    font-family:'Bank Gothic', Arial, sans-serif;
-    color:white;
-    font-size:22px;
-    margin-bottom:10px;
-    letter-spacing:1px;
+    margin:10px 0;
+    font-size:20px;
   }
 
   .set { display:none; }
@@ -135,7 +112,6 @@
     color:white;
     cursor:pointer;
     padding:10px 20px;
-    user-select:none;
   }
 </style>
 </head>
@@ -153,8 +129,7 @@
       <img src="AEngineBayDetailBMWBefore.jpg">
       <div class="after-img"><img src="AEngineBayDetailAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -165,8 +140,7 @@
       <img src="AMollieBackseatBefore.jpg">
       <div class="after-img"><img src="AMolliesBackseatAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -177,8 +151,7 @@
       <img src="AMolliesPassSeatBefore.jpg">
       <div class="after-img"><img src="AMolliesPassSeatAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -189,8 +162,7 @@
       <img src="AMumsBackseatsBefore.jpg">
       <div class="after-img"><img src="AMumsBackSeatAfter.png"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -201,8 +173,7 @@
       <img src="AMumsFrontBefore.png">
       <div class="after-img"><img src="AMumsFrontAfter.png"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -213,8 +184,7 @@
       <img src="ASamsAlloyBefore.jpg">
       <div class="after-img"><img src="ASamsCarAlloyAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -225,8 +195,7 @@
       <img src="ASamsBackseatBefore.jpg">
       <div class="after-img"><img src="ASamsRearSeatsAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -237,8 +206,7 @@
       <img src="ASamsBootBefore.jpg">
       <div class="after-img"><img src="ASamsBootAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -249,8 +217,7 @@
       <img src="ASamsCupholdersBefore.jpg">
       <div class="after-img"><img src="ASamsCupholderAfter.jpg"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -261,8 +228,7 @@
       <img src="ASamsCarRearBefore.png">
       <div class="after-img"><img src="ASamsCarRearAfter.png"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -273,8 +239,7 @@
       <img src="ASashasRearBefore.png">
       <div class="after-img"><img src="ASashasRearAfter.png"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -285,8 +250,7 @@
       <img src="ATomsVanBefore.png">
       <div class="after-img"><img src="ATomsVanFrontAfter.png"></div>
       <div class="slider"></div>
-      <div class="label label-before">Before</div>
-      <div class="label label-after">After</div>
+      <div class="handle"></div>
     </div>
   </div>
 
@@ -299,12 +263,12 @@
 
 <script>
 let currentSet = 1;
+showSet(1);
 
 function showSet(n) {
   document.querySelectorAll('.set').forEach(s => s.style.display = 'none');
   document.getElementById('set'+n).style.display = 'block';
 }
-showSet(1);
 
 function nextSet() {
   currentSet = currentSet === 12 ? 1 : currentSet + 1;
@@ -316,40 +280,41 @@ function prevSet() {
   showSet(currentSet);
 }
 
-/* NO ZOOM + SMOOTH DRAG */
+/* TRUE OVERLAY SWIPE — NO ZOOM */
 document.querySelectorAll('.compare-wrapper').forEach(wrapper => {
   const slider = wrapper.querySelector('.slider');
+  const handle = wrapper.querySelector('.handle');
   const afterImg = wrapper.querySelector('.after-img');
 
-  function startDrag(e) {
-    e.preventDefault();
-    window.addEventListener('mousemove', drag);
-    window.addEventListener('touchmove', drag, { passive:false });
-    window.addEventListener('mouseup', stopDrag);
-    window.addEventListener('touchend', stopDrag);
+  let dragging = false;
+
+  function start(e) {
+    dragging = true;
   }
 
-  function drag(e) {
-    e.preventDefault();
-    let x = (e.touches ? e.touches[0].pageX : e.pageX);
+  function move(e) {
+    if (!dragging) return;
+
+    let x = (e.touches ? e.touches[0].clientX : e.clientX);
     let rect = wrapper.getBoundingClientRect();
     let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+
     slider.style.left = pos + 'px';
+    handle.style.left = pos + 'px';
     afterImg.style.width = pos + 'px';
   }
 
-  function stopDrag() {
-    window.removeEventListener('mousemove', drag);
-    window.removeEventListener('touchmove', drag);
-    window.removeEventListener('mouseup', stopDrag);
-    window.removeEventListener('touchend', stopDrag);
+  function stop() {
+    dragging = false;
   }
 
-  slider.addEventListener('mousedown', startDrag);
-  slider.addEventListener('touchstart', startDrag, { passive:false });
+  slider.addEventListener('pointerdown', start);
+  handle.addEventListener('pointerdown', start);
+
+  window.addEventListener('pointermove', move);
+  window.addEventListener('pointerup', stop);
 });
 </script>
 
 </body>
 </html>
-
